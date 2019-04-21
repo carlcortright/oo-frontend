@@ -15,7 +15,7 @@ class App extends Component {
               fontSize={4}
               width={[1]}
               color='white'
-              bg='#246068'>
+              bg='#175451'>
               ClassQA
           </Box>
           <Route exact path="/" component={CreateClassroom} />

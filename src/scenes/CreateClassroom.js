@@ -51,7 +51,7 @@ class CreateClassroom extends Component {
                         onChange={this.updateClassname}
                     ></ClassInput>
                     <Button 
-                        bg='#246068'
+                        bg='#175451'
                         my={3}
                         alignSelf='center'
                         fontSize={4}
