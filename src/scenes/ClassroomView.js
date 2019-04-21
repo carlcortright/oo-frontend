@@ -87,6 +87,10 @@ class ClassroomView extends Component {
     }
 
     render() {
+        let noQuestionsPrompt = null;
+        if (this.state.questions.length == 0) {
+            noQuestionsPrompt = <Heading textAlign='center'>No questions have been created in this space.</Heading>
+        }
         return (
         <div>
             <Heading 
@@ -97,6 +101,7 @@ class ClassroomView extends Component {
                 {this.formatPhoneNumber(this.state.phone_number)}
             </Heading>
             <Flex justifyContent='center' flexWrap='wrap'>
+                {noQuestionsPrompt}
                 <QuestionList>
                     {this.createQuestions(this.state.questions)}
                 </QuestionList>
