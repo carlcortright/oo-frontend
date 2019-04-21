@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import ClassroomView from './scenes/ClassroomView';
 import CreateClassroom from './scenes/CreateClassroom';
 import { Box } from 'rebass';
