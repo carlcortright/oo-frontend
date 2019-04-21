@@ -21,11 +21,15 @@ class ClassroomView extends Component {
         let response = GetClass(classroom)
         response.then(function(result) {
             // Make the call to get the initial classroom data
-            let last_index = result.data.questions.length - 1;
+            let last_question_id = 0;
+            if (result.data.questions.length > 0) {
+                let last_index = result.data.questions.length - 1;
+                last_question_id = result.data.questions[last_index].id;
+            }
             self.setState({
                 phone_number: result.data.phone_number,
                 questions: result.data.questions,
-                last_question: result.data.questions[last_index].id,
+                last_question: last_question_id,
                 classname: classroom
             })
             // Start polling to get all new questions

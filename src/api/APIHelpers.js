@@ -13,9 +13,7 @@ export const GetLatestQuestions = (classname, last_id)  => {
       }});
 }
 
-export const CreateClassroom = (classname)  => {
+export const CreateClassroomAPI = (classname)  => {
     let url = 'http://classqa-api.herokuapp.com/api/create_classroom';
-    return axios.post(url, {
-        name: classname,
-      });
+    return axios.post(url, { name: classname });
 }
