@@ -41,6 +41,7 @@ class ClassroomView extends Component {
     }
 
     pollForQuestions = () => {
+        // get new questions every half second
         let self = this;
         let response = GetLatestQuestions(this.state.classname, this.state.last_question)
         response.then(function(result){
@@ -55,6 +56,7 @@ class ClassroomView extends Component {
     }
 
     formatPhoneNumber = (number_string) => {
+        // format phone number for display
         var cleaned = ('' + number_string).replace(/\D/g, '')
         var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
         if (match) {
@@ -65,17 +67,19 @@ class ClassroomView extends Component {
     }
 
     formatTimeStamp = (time_stamp) => {
-        // 2019-04-22T17:25:45.353Z = 11:25am 4/22/19
+        // timestamp format example 2019-04-22T17:25:45.353Z = 11:25am 4/22/19
         var characters = time_stamp.split("")
         return [characters[6], '/', characters[8], characters[9], '/', characters[0], characters[1], characters[2], characters[3]]
     }
 
     createQuestions = (questions) => {
+        // store new questions in cards and format based on type
         let cards = []
         for (let i = questions.length-1; i >= 0; i--) {
             let content = questions[i].content
             let qType = questions[i].question_type
             let time = questions[i].created
+            // types of questions accepted based on user input
             if (qType == "GN") {
                 cards.push(
                     <div className="question">
@@ -123,6 +127,7 @@ class ClassroomView extends Component {
             noQuestionsPrompt = <p>No questions have been created in this space.</p>
         }
         return (
+            // the main elements of the site are located here
             <div className="wrapper">
                 <div className="heading">
                     <p className="title">ClassQ&A</p>

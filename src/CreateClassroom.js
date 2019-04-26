@@ -14,6 +14,7 @@ class CreateClassroom extends Component {
     }
 
     createClass = () => {
+        // create new classroom based on the name the user entered
         let self = this;
         let response = CreateClassroomAPI(this.state.classname);
         response.then(function(result){
@@ -33,6 +34,7 @@ class CreateClassroom extends Component {
 
     render() {
         return (
+            // main elements of site located here, using some rebass elements
             <div className="wrapper">
                 <div className="heading">
                     <p className="title">ClassQ&A</p>
@@ -65,6 +67,8 @@ class CreateClassroom extends Component {
         );
     }
 }
+
+// styling for the rebass elements
 
 const TallFlex = styled(Flex)`
   height: calc(100vh - 60px);
